@@ -1,0 +1,46 @@
+<html>
+<head>
+</head>
+<body>
+<h2>SONATA EMPLOYEES</h2>
+<input type="text" id="name" />
+<button onclick="submit()"> SUBMIT </button>
+<table id="empTable" border="1">
+<tr>
+<th> NAME </th>
+<th> DEPARTMENTS </th>
+</tr>
+</table>
+</body>
+<script>
+var empname=["John","David","William","Stacy","Olivia","Richard","Stephen","Francis","Darla","Neil","Carol","Robert","Ford","Gaby","Julie"];
+var dept=["Delivery Solutions","Cloud Computing","Data Scientist","Digital Business Group","Business Technology Unit","Delivery Solutions","Cloud Computing","Data Scientist","Digital Business Group","Business Technology Unit","Integrated Technology Service","Agile Technology","Digital Business Group","Agile Technology","Integrated Technology Service"];
+var table=document.getElementById("empTable");
+console.log(empname.length);
+for(i=0;i<empname.length;i++)
+{
+var row=document.createElement("tr");
+row.classList.add("temp");
+row.setAttribute("id",empname[i].toUpperCase());
+var cell=document.createElement("td");
+var cellText=document.createTextNode(empname[i]);
+cell.appendChild(cellText);
+row.appendChild(cell);
+var cell=document.createElement("td");
+var cellText=document.createTextNode(dept[i]);
+cell.appendChild(cellText);
+row.appendChild(cell);
+table.appendChild(row);
+function submit()
+{
+var rows=table.getElementsByTagName("tr");
+for(i=0;i<rows.length;i++){
+rows[i].style.backgroundColor="white";
+}
+var key =document.getElementById("name").value.toUpperCase();
+console.log(key);
+document.getElementById(key).style.backgroundColor="red";
+}
+}
+</script>
+</html>
